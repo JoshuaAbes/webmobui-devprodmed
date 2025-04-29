@@ -11,7 +11,7 @@ class ChapterUpdateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class ChapterUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'content' => 'string',
+            'image' => 'nullable|image',
+            'story_id' => 'numeric'
         ];
     }
 }

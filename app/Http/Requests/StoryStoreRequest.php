@@ -11,7 +11,7 @@ class StoryStoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,10 @@ class StoryStoreRequest extends FormRequest
      */
     public function rules(): array
     {
+        //https://laravel.com/docs/12.x/validation#available-validation-rules
         return [
-            //
+            'title' => 'required|string|max:50|unique:stories,title',
+            'summary' => 'nullable|string|max:500'
         ];
     }
 }

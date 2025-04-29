@@ -11,7 +11,7 @@ class StoryUpdateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,8 @@ class StoryUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'string|max:50|unique:stories,title',
+            'summary' => 'nullable|string|max:500'
         ];
     }
 }

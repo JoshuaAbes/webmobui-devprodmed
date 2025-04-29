@@ -11,7 +11,7 @@ class ChoiceUpdateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class ChoiceUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'text' => 'string',
+            'chapter_id' => 'numeric',
+            'next_chapter_id' => 'numeric'
         ];
     }
 }

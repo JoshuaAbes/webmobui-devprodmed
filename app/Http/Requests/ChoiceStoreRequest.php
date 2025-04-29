@@ -11,7 +11,7 @@ class ChoiceStoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class ChoiceStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'text' => 'required|string',
+            'chapter_id' => 'required|numeric',
+            'next_chapter_id' => 'numeric'
         ];
     }
 }
